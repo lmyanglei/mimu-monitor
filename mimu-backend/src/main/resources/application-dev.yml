@@ -1,0 +1,48 @@
+spring:
+  datasource:
+      jdbc-url: jdbc:sqlite:db/monitorsqlite.db
+      username:
+      password:
+      driver-class-name: org.sqlite.JDBC
+  multidatasource:
+    monitorsqlite:
+      jdbc-url: jdbc:sqlite:db/monitorsqlite.db
+      username:
+      password:
+      driver-class-name: org.sqlite.JDBC
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+  mail:
+    host: smtp.163.com
+    port: 25
+    default-encoding: utf-8
+    username: 13800138000@163.com
+    password: 13800138000
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+monitor:
+  network: inner
+server:
+  port: 8081
+file:
+  upload:
+    path:
+      direct: /update
+      relative: /upload/**
+mybatis:
+  mapper-locations: classpath:mybatis/*.xml
+  type-aliases-package: cn.mimukeji.backend.business.entity
